@@ -1,0 +1,87 @@
+{
+    "team": [{
+            "userName": "小队队",
+            "time": "2018/10/22",
+            "avatar": "#icon-icons-brown-long-cu",
+            "describe": "基于bootstrap的网站及微信小程序开发",
+            "cardimg": "../photo/card.jpg"
+        },
+        {
+            "userName": "中队长",
+            "time": "2018/1/2",
+            "avatar": "#icon-icons-brown-long-ha",
+            "describe": "开个奶茶店,急需老板娘一打",
+            "cardimg": "../photo/card1.jpg"
+        },
+        {
+            "userName": "队花花",
+            "time": "2018/3/12",
+            "avatar": "#icon-icons-brown-short-h",
+            "describe": "一起拼单，多快好省来一波",
+            "cardimg": "../photo/card2.jpg"
+        },
+        {
+            "userName": "李队副",
+            "time": "2018/11/14",
+            "avatar": "#icon-icons-business-man-",
+            "describe": "走，看电影，神奇动物在哪里",
+            "cardimg": "../photo/card3.jpg"
+        },
+        {
+            "userName": "中队",
+            "time": "2018/5/6",
+            "avatar": "#icon-icons-brown-pigtail",
+            "describe": "东三取快递小团伙",
+            "cardimg": "../photo/card4.jpg"
+        },
+        {
+            "userName": "队队一",
+            "time": "2018/10/1",
+            "avatar": "#icon-icons-blond-long-ha",
+            "describe": "探险小分队，白雪KTV走起",
+            "cardimg": "../photo/card5.jpg"
+        },
+        {
+            "userName": "小二队",
+            "time": "2018/11/11",
+            "avatar": "#icon-icons-brown-hair-bu",
+            "describe": "词曲编弹混录唱，做一张好专辑",
+            "cardimg": "../photo/card6.jpg"
+        },
+        {
+            "userName": "欧阳队队",
+            "time": "2018/12/12",
+            "avatar": "#icon-icons-brown-curly-h",
+            "describe": "南枫乐队，鼓手，贝斯，吉他，主唱，键盘，钢管舞演员，经纪人，音响，灯光，场地",
+            "cardimg": "../photo/card1.jpg"
+        },
+        {
+            "userName": "大队哥",
+            "time": "2018/6/1",
+            "avatar": "#icon-icons-bald-man-in-g",
+            "describe": "数学建模，两天两夜的极致体验，心态锻炼最佳试炼",
+            "cardimg": "../photo/card2.jpg"
+        },
+        {
+            "userName": "队鸭",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-blond-curly-h",
+            "describe": "硬核写生,你来坐来我来画",
+            "cardimg": "../photo/card3.jpg"
+        },
+        {
+            "userName": "队卜队",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-bald-man-in-g",
+            "describe": "朋克实验",
+            "cardimg": "../photo/card4.jpg"
+        },
+        {
+            "userName": "队两栋",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-brown-curly-h",
+            "describe": "数据人文，模拟思想",
+            "cardimg": "../photo/card5.jpg"
+        }
+    ]
+}

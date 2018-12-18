@@ -1,0 +1,433 @@
+/*结构样式*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    position: relative;
+
+}
+
+/* 登录框 */
+.bodymask {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1051;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.formsbox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.myformsbox {
+    display: none;
+    position: relative;
+    background-color: transparent;
+    color: white;
+    top: -15px;
+    right: 5px;
+    padding-bottom: 8px;
+}
+
+.myform-item {
+    opacity: .8;
+    color: white;
+}
+
+.myform-item:hover {
+    opacity: 1;
+    color: white;
+
+}
+
+.loginforms {
+    width: 32.5rem;
+    height: 25.75rem;
+    padding: .625rem 1.25rem;
+    background-color: white;
+    z-index: 5;
+    box-shadow: 1px 1px 1px #A0A0A0;
+}
+
+.logincardbox {
+    margin: 0 auto;
+    width: 286px;
+}
+
+/*** 文中居中线两端**/
+.linecenter {
+    width: 100%;
+    font-size: 16px;
+    color: #999;
+    margin: .625rem auto;
+    position: relative;
+    text-align: center;
+}
+
+.linecenter:before,
+.linecenter:after {
+    content: "";
+    border-top: 1px solid #ededed;
+    display: block;
+    position: absolute;
+    width: 50px;
+    top: 8px;
+}
+
+.linecenter:before {
+    left: 0;
+    /*调整背景横线的左右距离*/
+}
+
+.linecenter:after {
+    right: 0;
+}
+
+/******************/
+/* 详情模态框 */
+.detailbox {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.detail-describe {
+    text-indent: 2rem;
+    opacity: .8;
+    letter-spacing: .3rem;
+}
+
+/* 自定义加入提示框 */
+.myjoin {
+    z-index: 1051;
+    position: fixed;
+}
+
+.top-navigation {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.login {
+    border: 1.4px solid white;
+    border-radius: 20%;
+    padding: .3125rem;
+    color: white;
+    text-align: center;
+    display: none;
+}
+
+.head-background {
+    width: 100%;
+    height: 25rem;
+    background-color: #00AEEF;
+}
+
+.head-background-img {
+    width: 250px;
+    height: 188px;
+    margin-top: 60px;
+    margin-left: 520px;
+    transform: rotate(270deg);
+}
+
+.main-navigation {
+    width: 20%;
+    position: fixed;
+}
+
+.navbar-item {
+    text-align: left;
+    color: #2c3338;
+    margin: .3125rem 2rem;
+    border: .0625rem solid silver;
+    box-shadow: 1px 1px 4px 1px rgb(139, 165, 245);
+    width: 100%;
+}
+.info-num
+{
+    position: relative;
+    top:-45px;
+    left:30px;
+    width: 15px;
+    height:15px;
+    border-radius: 50%;
+    font-size: 0.2rem;
+    text-align: center;
+    background: red;
+    color: whitesmoke;
+}
+.main-box {
+    position: relative;
+    margin-bottom: -9rem;
+    padding: 2.8125rem;
+    bottom: 180px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.main-box::after {
+    height: 50px;
+    width: 50%;
+    content: "";
+    position: absolute;
+    background: white;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+    /*设置副阴影在主阴影的下面*/
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    border-radius: 100px/10px;
+}
+
+.describe {
+    margin-bottom: 2.1875rem;
+}
+
+.main-content {
+    width: 100%;
+}
+
+.main-content-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.875rem;
+    border-radius: .3125rem;
+    border: 1px #2c3338;
+    box-shadow: -1px -1px 2px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+.h3 {
+    padding-left: 0.9375rem;
+}
+.cardbox
+{
+    margin-top: 0;
+    box-shadow: none;
+    transition: box-shadow,margin-top 0.2s;
+}
+.cardbox:hover
+{
+    margin-top: -2px;
+    box-shadow:2px 2px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.my-card {
+    margin: 1.875rem 0;
+}
+
+.card-img {
+    height: 360px;
+    padding: .125rem;
+    border-radius: .25rem;
+}
+
+.card-text {
+
+    height: 3rem;
+    display: -webkit-box;
+    /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical;
+    /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2;
+    /** 显示的行数 **/
+    overflow: hidden;
+    /** 隐藏超出的内容 **/
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+
+.avatar {
+    size: .625rem;
+    border: 2px solid;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.myModal-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+    opacity: 0;
+
+}
+
+.my-modal {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background-color: transparent;
+    /* 鼠标穿透*/
+    /* pointer-events: none;  */
+}
+
+.cutoffLine {
+    width: 50%;
+    height: 2px;
+    background: rgb(2, 48, 65);
+    display: none;
+}
+
+.teamloading {
+    width: 2rem;
+    margin: 0 .3125rem .625rem .3125rem;
+}
+
+.icon-add {
+    font-size: 2rem;
+    background-color: transparent;
+}
+
+.buttom-box {
+    background-color: #2c3338;
+    color: #fff;
+    padding: 0 0 20px 0;
+}
+
+.bottom-left {
+    width: 60%;
+    margin: 0;
+}
+
+.bottom-right {
+    width: 30%;
+    margin: 0;
+}
+
+.bottom-item {
+    margin: 30px 0;
+    font-size: 0.7rem;
+    opacity: .5;
+
+}
+
+/*结构样式*/
+
+/*svg图标设置*/
+.icon {
+    color: #2c3338;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+
+}
+
+.icon-sousuo {
+    font-size: 1.675rem;
+}
+
+/*svg图标设置*/
+
+/* 通用样式*/
+/*
+#428BCA primary
+#5CB85C success
+#5BC0DE info
+#F0AD4E warning
+#D9534F danger 
+#343A40 top-navigation
+*/
+/* 按钮透明 */
+.btn-color {
+    background-color: transparent;
+}
+.click-icon
+{
+ cursor: pointer;
+}
+.label {
+    background-color: transparent;
+    color: #00AEEF;
+    padding: 1px 10px;
+    border-radius: 5px;
+    margin: 10px 10px 10px 0;
+    box-shadow: 1px 1px 1px rgb(203, 205, 206);
+}
+
+/* 行内垂直水平居中 */
+.flexcenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 输入框 */
+.inputbox {
+    width: 100%;
+    height: 2.375rem;
+    margin-bottom: 15px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 0 .625rem;
+}
+
+/**加粗*/
+b {
+    opacity: .8;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/**垂直居中**/
+.aflexcenter {
+    display: flex;
+    align-items: center;
+}
+
+/*横向对称布局*/
+.flex-justfiy {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*横向对称布局*/
+
+/* 通用样式*/
+
+/* 小屏幕 */
+@media screen and (max-width:970px) {
+    .header-box {
+        width: 100%;
+        /* padding: auto 0; */
+    }
+
+    .main-box {
+        padding: .3125rem;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* 小屏幕 */

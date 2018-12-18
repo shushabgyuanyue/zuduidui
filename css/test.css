@@ -1,0 +1,9 @@
+.bodymask
+{ 
+    /* position: fixed;  */
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    z-index: 2;
+    opacity: 0.8;  
+}

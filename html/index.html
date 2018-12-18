@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type="text/css">
+
+    <!-- 外部引入test.css -->
+    <link rel="stylesheet" href="../css/index.css" type="text/css" />
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS  -->
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+
+    <!-- jQuery3.3.1 -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- 图标 js -->
+    <script src="https://at.alicdn.com/t/font_893856_85li5m2ip4g.js"></script>
+    <!-- 自己的test.js -->
+    <script defer type="text/javascript" src="../dist/index.bundle.js"></script>
+    <title>组队队</title>
+
+    <template class="card-template">
+        <div class="col-lg-4 my-card">
+            <div class="card cardbox">
+                <!-- 头部 -->
+                <div class="card-header" style="padding:5px;z-index:2">
+                    <!-- 订阅 -->
+                    <div class="flex-justfiy">
+                        <button class="btn btn-light " type="submit" style="margin:0;padding:0;">
+                            <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;">
+                                <use xlink:href="#icon-dingyue"></use>
+                            </svg>
+                        </button>
+                        <!-- 分享 -->
+                        <button class="btn btn-light" type="submit" style="margin:0;padding:0;">
+                            <svg class="icon" aria-hidden="true" style="font-size: 1.2rem;">
+                                <use xlink:href="#icon-fenxiang"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="padding:0;position:relative;">
+
+                    <!-- 模态框 -->
+                    <div class="myModal-box">
+                        <div class="my-modal">
+                            <button type="button" class="btn btn-outline-info " data-dismiss="modal" data-toggle="modal"
+                                data-target="#join">加入团队</button>
+                            <button type="button" class="btn btn-outline-info " data-dismiss="modal" data-toggle="modal"
+                                data-target="#detail">了解详情</button>
+                        </div>
+                    </div>
+                    <!-- 图片 -->
+                    <img class="card-img" src="../photo/card2.jpg" alt="">
+                </div>
+                <!-- 尾部 -->
+                <div class="card-footer ">
+                    <div class="aflexcenter">
+                        <a href="../personal/personal.html" class="aflexcenter" style="width: fit-content">
+                            <div style="margin-right:5px;">
+                                <svg class="icon" aria-hidden="true" style="font-size: 2.5rem;">
+                                    <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                </svg>
+                            </div>
+                            <b>
+                                <h6 class="PromulgatorName" style="color:#2c3338;margin: 0;">小队队</h6>
+                            </b>
+                        </a>
+                    </div>
+                    <b class="card-text">基于bootstrap的网站及微信小程序开发</b>
+                    <div style="text-align:right"><time style="opacity:.8">2018/11/22</time></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</head>
+
+<body id="teamTitle" data-spy="scroll" data-target="#main-navigation" data-offset="50">
+    <!-- 自定义模态登录框 -->
+    <div class="bodymask" id="loginbodymask">
+        <div class="formsbox">
+            <div class="loginforms " style="border-radius:10px;">
+                <div style="text-align:right">
+                    <button id="loginclose" class="btn btn-color " style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: .925rem;">
+                            <use xlink:href="#icon-guanbi1"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flexcenter">
+                    <img src="../photo/logo.png" alt="Logo" style="width:50px;">
+                    <h3 style="margin:0"> 组队队</h3>
+                </div>
+                <div class="logincardbox">
+                    <div>
+                        <div class="linecenter">使用第三方账号登录</div>
+                        <div class="flexcenter" style="margin:5px 0 ">
+                            <a id="qq" style="margin:0 .625rem;padding:0;" href="#">
+                                <svg class="icon" aria-hidden="true" style="font-size: 1.925rem;">
+                                    <use id="qqicon" xlink:href="#icon-changyonglogo41"></use>
+                                </svg>
+                            </a>
+                            <a id="weixin" style="margin:0 .625rem;padding:0;" href="#">
+                                <svg class="icon" aria-hidden="true" style="font-size: 1.925rem;">
+                                    <use id="weixinicon" xlink:href="#icon-weixin"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="linecenter">使用手机号邮箱登录</div>
+                        <div>
+                            <input type="text" name="" class="inputbox" placeholder="输入手机号或邮箱">
+                        </div>
+                        <div>
+                            <input type="password" name="" class="inputbox" placeholder="密码">
+                        </div>
+                        <button id="login-success" type="submit" class="btn btn-primary " style="width:100%;">登录</button>
+                        <div class="flexcenter" style="justify-content:space-between">
+                            <small style="opacity:.6">新用户点击登录自动注册</small>
+                            <button type="button" class="btn btn-link"><small>忘记密码？</small></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 自定义加入模态框 -->
+    <div id="myjoinmask" class="bodymask">
+        <div class="formsbox">
+            <div class="card myjoin" style="width: 466px;border-radius: 1px 1px 1px black">
+                <div class="card-header flex-justfiy">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button id="myjoin-close" class="btn btn-color " style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: .925rem;">
+                            <use xlink:href="#icon-guanbi1"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="linecenter" style="margin:0 auto">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;opacity:.5">
+                            <use class="avatar" xlink:href="#icon-xuanzhong"></use>
+                        </svg>
+                        加入请求已发送！
+                    </div>
+                </div>
+                <div class="card-footer" style="padding:0;">
+                    <button class="btn btn-info " type="submit" style="width: 100%;border-radius:0;border:0;">
+                        查看
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 详情模态框 -->
+    <div class="modal fade" id="detail">
+        <div class="modal-dialog" style="max-width:900px;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5 style="text-align:center;">
+                        <b>基于bootstrap的网站及微信小程序开发</b>
+                    </h5>
+                </div>
+                <div class="modal-footer">
+
+                    <div class="container">
+                        <div class="detailbox">
+                            <div>
+                                <h6><b>项目介绍:</b></h6>
+                                <p class="detail-describe">
+                                    此项目是要搭建一个网站及微信小程序，它可以提供一个组队的平台，集众之所长，聚一帮志同道合的人去完成彼此都想要做的事儿，
+                                    在这儿，可以一起组乐队，一起做思想试验，一起去支教，一起做app，一起数学建模，一起做网课，一起减肥健身，一起大创，一起参加活动，
+                                    一起约电影，一起去经历，一起去嗨皮,一起去挑战不可能，一起疯，一起狂。谁说电音不能混民谣，谁说理工男不懂卡夫卡，谁说女孩子
+                                    不可以breaking；这儿将会聚集有能力有想法有追求的可爱人们，有共同理想的朋友伙伴，这是一个有趣的平台，它的目的是创作生产。
+                                    这是这个网站的第一个项目，为了搭建这个有趣的地方，在技术上我们需要，前端，美工，后端，运维，网络安全人员，也需要营销，
+                                    文案，平面设计的同学，当然也需要资金的支持，如果你对这个项目感兴趣，并愿意献出自己的一份力量，那就加入我们吧。
+                                </p>
+                            </div>
+                            <div class="aflexcenter">
+                                <button class="btn btn-info label">#项目</button>
+                                <button class="btn btn-danger label" style="color:#DC3545">#网站</button>
+                            </div>
+
+                            <div class="aflexcenter" style="justify-content:flex-end;">
+                                <a href="#" class="aflexcenter" style="text-decoration : none;width:fit-content">
+                                    <div style="margin-right:5px;">
+                                        <svg class="icon" aria-hidden="true" style="font-size: 1.5rem;">
+                                            <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                        </svg>
+                                    </div>
+                                    <h6 class="PromulgatorName" style="color:#2c3338;"><b>小队队</b></h6>
+                                </a>
+                            </div>
+                            <div style="text-align:right"><time style="opacity:.8">2018/11/22</time></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button id="myjoinbtn" type="button" class="btn btn-info" style="width:100%;border-radius:0;">加入团队</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 加入模态框 -->
+    <div class="modal fade" id="join">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="linecenter" style="margin:0 auto">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;opacity:.5">
+                            <use class="avatar" xlink:href="#icon-xuanzhong"></use>
+                        </svg>
+                        加入请求已发送！
+                    </div>
+                </div>
+                <div class="card-footer" style="padding: 0;">
+                    <button class="btn btn-info " type="submit" style="width: 100%;border-radius:0">
+                        查看
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark top-navigation" style="padding:0 1rem; height:63px;">
+        <div id="container" class="container header-box">
+            <div class="header">
+                <!-- Brand -->
+                <a class="navbar-brand " href="../index/index.html">
+                    <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                    组队队
+                </a>
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+                    style="border:0;padding:0;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <!-- Navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button id="btn-login" type="button" class="btn btn-color login" data-toggle="modal" data-target="#loginforms">登录</button>
+                    <div id="mybox" style="height:3rem;width: 55.609px">
+                        <a href="../html/personal.html">
+                            <svg class="icon" aria-hidden="true" style="font-size: 3rem;">
+                                <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                            </svg>
+                        </a>
+                        <div class="info-num">2</div>
+                        <!-- 自定义个人中心模态框 -->
+                        <div id="myform" class="myformsbox">
+                            <div class="container">
+                                <div id="quit">
+                                    <small><b class="myform-item" style="cursor:pointer;">退出</b></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="head-background">
+        <!-- <img class="head-background-img" style="opacity: 0.6;" src="../photo/head-background7.gif" alt=""> -->
+        <!-- <img  style="background-size:cover" src="../photo/bg1.png" alt=""> -->
+    </div>
+    <div class="main-navigation">
+        <div class="container">
+            <!-- Nav pills -->
+            <nav id="main-navigation">
+                <ul class="nav nav-pills flex-column nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-item active" href="#teamTitle">团队</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-item " href="#taskTitle">任务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-item " href="#acativityTitle">活动</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="main-box">
+            <div style="display:flex;justify-content: space-between;flex-wrap: wrap;">
+
+                <div class="describe">
+                    <h2>
+                        Team up to do tasks
+                    </h2>
+                </div>
+                <form class="form-inline describe">
+                    <input class="form-control" type="text" placeholder="Search">
+                        <svg class="icon icon-sousuo click-icon"  style="margin-left:16px ;"aria-hidden="true">
+                            <use xlink:href="#icon-sousuo"></use>
+                        </svg>
+                </form>
+            </div>
+            <div class="main-content">
+                <div id="团队" class="main-content-item">
+                </div>
+                <div style="display:flex;justify-content:center ;">
+                    <a class="teamloading " href="javascript:void(0);">
+                        <svg class="icon icon-add " style="color: rgb(2, 48, 65);" aria-hidden="true">
+                            <use xlink:href="#icon-tianjiatupian"></use>
+                        </svg>
+                    </a>
+                </div>
+                <h6 id="teamnone" style="text-align:center; opacity: 0;">蛋糕 蛋糕 莫得蛋糕</h6>
+                <div id="taskTitle" style="height:5rem"></div>
+                <h3 class="h3">While-task：</h3>
+                <div id="任务" class="main-content-item">
+                </div>
+                <div style="display:flex;justify-content:center ;">
+                    <a class="taskloading " href="javascript:void(0);">
+                        <svg class="icon icon-add " style="color: rgb(2, 48, 65);;" aria-hidden="true">
+                            <use xlink:href="#icon-tianjiatupian"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div id="acativityTitle" style="height:5rem"></div>
+                <h3 class="h3">participate in activities：</h3>
+                <div id="活动" class="main-content-item">
+                </div>
+                <div style="display:flex;justify-content: center ;">
+                    <a class="activitysloading" href="javascript:void(0);">
+                        <svg class="icon icon-add " style="color: rgb(2, 48, 65);;" aria-hidden="true">
+                            <use xlink:href="#icon-tianjiatupian"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttom-box">
+        <div class="container flex-justfiy">
+            <div class="bottom-left">
+                <div class="aflexcenter" style="font-size:1.5rem;margin:30px 0;padding:0;">
+                    <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                    <div>组队队</div>
+                </div>
+                <div class="bottom-item">
+                    组队队倾力打造的项目合作，活动交流平台<br />
+                    用户可以在组队队平台上发布任务和活动，为已发布的任务创立项目，可以招募其他用户一起完成项目，
+                    也可以参与自己感兴趣的项目和活动，借助团队的力量充分发挥自己的优势让事情变得简单可行，让共同的想法成为现实
+                </div>
+                <div class="bottom-item">
+                    ©组队队, powered by 组队队 THX.法律声明<br />
+                    转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源，商业媒体及纸媒请先联系：1694759659@qq.com
+                </div>
+            </div>
+            <div class="bottom-right">
+                <div style="font-size:1.2rem;margin:30px 0;padding:0;opacity: .5;">联系我们：</div>
+                <div class="bottom-item">
+                    <img style="height: 100px; opacity: 1;" src="../photo/weixin.png" alt="微信二维码">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

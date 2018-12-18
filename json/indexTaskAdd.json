@@ -1,0 +1,32 @@
+{
+    "team": [{
+            "userName": "队卜队",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-bald-man-in-g",
+            "describe": "朋克实验",
+            "cardimg": "../photo/card4.jpg"
+        },
+        {
+            "userName": "队两栋",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-brown-curly-h",
+            "describe": "数据人文，模拟思想",
+            "cardimg": "../photo/card5.jpg"
+        },
+        {
+            "userName": "队卜队",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-bald-man-in-g",
+            "describe": "朋克实验",
+            "cardimg": "../photo/card4.jpg"
+        },
+        {
+            "userName": "队两栋",
+            "time": "2018/12/25",
+            "avatar": "#icon-icons-brown-curly-h",
+            "describe": "数据人文，模拟思想",
+            "cardimg": "../photo/card5.jpg"
+
+        }
+    ]
+}

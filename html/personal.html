@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type="text/css">
+
+    <!-- 自定义 css -->
+    <link rel="stylesheet" href="../css/personal.css" type="text/css" />
+    <!-- 抖动 css -->
+    <link rel="stylesheet" href="../css/csshake-master/dist/csshake.css" type="text/css" />
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS  -->
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+
+    <!-- jQuery3.3.1 -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- 图标 js -->
+    <script src="//at.alicdn.com/t/font_893856_tvgyraa7i4.js"></script>
+    <!-- 自己的personal.js -->
+    <script type="text/javascript" src="../dist/personal.bundle.js"></script>
+    <title>组队队-个人中心</title>
+    <!-- 展示卡片 -->
+    <template class="card-template">
+        <div class="col-lg-4 my-card">
+            <div class="card">
+                <!-- 头部 -->
+                <div class="card-header" style="padding:3px;z-index:2">
+                    <!-- 订阅 -->
+                    <div class="flex-justfiy">
+                        <button class="btn btn-light " type="submit" style="margin:0;padding:0;">
+                            <svg class="icon" aria-hidden="true" style="font-size: 1rem;">
+                                <use xlink:href="#icon-dingyue"></use>
+                            </svg>
+                        </button>
+                        <!-- 分享 -->
+                        <button class="btn btn-light" type="submit" style="margin:0;padding:0;">
+                            <svg class="icon" aria-hidden="true" style="font-size: .8rem;">
+                                <use xlink:href="#icon-fenxiang"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="padding:0;position:relative;">
+
+                    <!-- 模态框 -->
+                    <div class="myModal-box">
+                        <div class="my-modal">
+                            <button type="button" class="btn btn-outline-info " data-dismiss="modal" data-toggle="modal"
+                                data-target="#join">加入团队</button>
+                            <button type="button" class="btn btn-outline-info " data-dismiss="modal" data-toggle="modal"
+                                data-target="#detail">了解详情</button>
+                        </div>
+                    </div>
+                    <!-- 图片 -->
+                    <img class="card-img" src="../photo/card2.jpg" alt="">
+                </div>
+                <!-- 尾部 -->
+                <div class="card-footer " style="padding:2px 16px;">
+                    <div class="aflexcenter">
+                        <a href="../personal/personal.html" class="aflexcenter" style="width: fit-content">
+                            <div style="margin-right:5px;">
+                                <svg class="icon" aria-hidden="true" style="font-size: 1.8rem;">
+                                    <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                </svg>
+                            </div>
+                            <b>
+                                <h6 class="PromulgatorName" style="color:#2c3338;margin: 0;font-size: .9rem">小队队</h6>
+                            </b>
+                        </a>
+                    </div>
+                    <b class="card-text">基于bootstrap的网站及微信小程序开发</b>
+                    <div style="text-align:right"><time style="opacity:.8 ;font-size:.8rem">2018/11/22</time></div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- 消息 -->
+    <template class="info">
+        <li style="display:flex;margin:10px 10px;">
+            <div class="unread-point" style="align-self:center;"></div>
+            <div style="display:flex;align-items:center;width: 95%;">
+                <a href="../personal/personal.html">
+                    <svg class="icon" id="myicon" aria-hidden="true" style="font-size: 3rem;">
+                        <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                    </svg>
+                </a>
+                <div style="width:85%;cursor:pointer;">
+                    <div class="flex-justfiy">
+                        <span style="width:50%;color: #5BC0DE;font-size: .9rem;" class="ellipsis">小队队</span>
+                        <div style="text-align:right"><time style="opacity:.8;font-size:.9rem;">2018/11/22</time></div>
+                    </div>
+                    <p style="margin:0;font-size: .8rem;opacity: .8;" class="ellipsis"><b>很高兴您能参与我们的项目，一起加油吧,哈哈哈哈哈哈哈哈哈哈哈</b></p>
+                </div>
+            </div>
+        </li>
+        <div class="cut-line"></div>
+    </template>
+    <!-- 没有内容 -->
+    <template class="empty">
+        <div class="flexcenter" style="margin:0 auto; height:100%;">
+            <div style="margin:20px;">
+                <svg class="icon" aria-hidden="true" style="font-size: 8rem;opacity:.3;">
+                    <use class="avatar" xlink:href="#icon-meiyouneirong"></use>
+                </svg>
+            </div>
+            <div>
+                <h5><b style="opacity:.3">蛋糕 蛋糕 木有蛋糕</b></h5>
+            </div>
+        </div>
+    </template>
+</head>
+
+<body id="teamTitle" data-spy="scroll" data-target="#main-navigation" data-offset="50">
+    <!-- 自定义模态登录框 -->
+    <div class="bodymask" id="loginbodymask">
+        <div class="formsbox">
+            <div class="loginforms " style="border-radius:10px;">
+                <div style="text-align:right">
+                    <button id="loginclose" class="btn btn-color " style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: .925rem;">
+                            <use xlink:href="#icon-guanbi1"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flexcenter">
+                    <img src="../photo/logo.png" alt="Logo" style="width:50px;">
+                    <h3 style="margin:0"> 组队队</h3>
+                </div>
+                <div class="logincardbox">
+                    <div>
+                        <div class="linecenter">使用第三方账号登录</div>
+                        <div class="flexcenter" style="margin:5px 0 ">
+                            <button id="qq" class="btn btn-color " type="submit" style="margin:0 .625rem;padding:0;">
+                                <svg class="icon" aria-hidden="true" style="font-size: 1.925rem;">
+                                    <use id="qqicon" xlink:href="#icon-changyonglogo41"></use>
+                                </svg>
+                            </button>
+                            <button id="weixin" class="btn btn-color " type="submit" style="margin:0 .625rem;padding:0;">
+                                <svg class="icon" aria-hidden="true" style="font-size: 1.925rem;">
+                                    <use id="weixinicon" xlink:href="#icon-weixin"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="linecenter">使用手机号邮箱登录</div>
+                        <div>
+                            <input type="text" name="" class="inputbox" placeholder="输入手机号或邮箱">
+                        </div>
+                        <div>
+                            <input type="password" name="" class="inputbox" placeholder="密码">
+                        </div>
+                        <button id="login-success" type="submit" class="btn btn-primary " style="width:100%;">登录</button>
+                        <div class="flexcenter" style="justify-content:space-between">
+                            <small style="opacity:.6">注册</small>
+                            <button type="button" class="btn btn-link"><small>忘记密码？</small></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 自定义加入模态框 -->
+    <div id="myjoinmask" class="bodymask">
+        <div class="formsbox">
+            <div class="card myjoin" style="width: 466px;border-radius: 1px 1px 1px black">
+                <div class="card-header flex-justfiy">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button id="myjoin-close" class="btn btn-color " style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: .925rem;">
+                            <use xlink:href="#icon-guanbi1"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="linecenter" style="margin:0 auto">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;opacity:.5">
+                            <use class="avatar" xlink:href="#icon-xuanzhong"></use>
+                        </svg>
+                        加入请求已发送！
+                    </div>
+                </div>
+                <div class="card-footer" style="padding:0;">
+                    <button class="btn btn-info " type="submit" style="width: 100%;border-radius:0;border:0;">
+                        查看
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 详情模态框 -->
+    <div class="modal fade" id="detail">
+        <div class="modal-dialog" style="max-width:900px;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5 style="text-align:center;">
+                        <b>基于bootstrap的网站及微信小程序开发</b>
+                    </h5>
+                </div>
+                <div class="modal-footer">
+
+                    <div class="container">
+                        <div class="detailbox">
+                            <div>
+                                <h6><b>项目介绍:</b></h6>
+                                <p class="detail-describe">
+                                    此项目是要搭建一个网站及微信小程序，它可以提供一个组队的平台，集众之所长，聚一帮志同道合的人去完成彼此都想要做的事儿，
+                                    在这儿，可以一起组乐队，一起做思想试验，一起去支教，一起做app，一起数学建模，一起做网课，一起减肥健身，一起大创，一起参加活动，
+                                    一起约电影，一起去经历，一起去嗨皮,一起去挑战不可能，一起疯，一起狂。谁说电音不能混民谣，谁说理工男不懂卡夫卡，谁说女孩子
+                                    不可以breaking；这儿将会聚集有能力有想法有追求的可爱人们，有共同理想的朋友伙伴，这是一个有趣的平台，它的目的是创作生产。
+                                    这是这个网站的第一个项目，为了搭建这个有趣的地方，在技术上我们需要，前端，美工，后端，运维，网络安全人员，也需要营销，
+                                    文案，平面设计的同学，当然也需要资金的支持，如果你对这个项目感兴趣，并愿意献出自己的一份力量，那就加入我们吧。
+                                </p>
+                            </div>
+                            <div class="aflexcenter">
+                                <button class="btn btn-info label">#项目</button>
+                                <button class="btn btn-danger label" style="color:#DC3545">#网站</button>
+                            </div>
+
+                            <div class="aflexcenter" style="justify-content:flex-end;">
+                                <a href="#" class="aflexcenter" style="text-decoration : none;width:fit-content">
+                                    <div style="margin-right:5px;">
+                                        <svg class="icon" aria-hidden="true" style="font-size: 1.5rem;">
+                                            <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                        </svg>
+                                    </div>
+                                    <h6 class="PromulgatorName" style="color:#2c3338;"><b>小队队</b></h6>
+                                </a>
+                            </div>
+                            <div style="text-align:right"><time style="opacity:.8">2018/11/22</time></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button id="myjoinbtn" type="button" class="btn btn-info" style="width:100%;border-radius:0;">加入团队</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 加入模态框 -->
+    <div class="modal fade" id="join">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="linecenter" style="margin:0 auto">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;opacity:.5">
+                            <use class="avatar" xlink:href="#icon-xuanzhong"></use>
+                        </svg>
+                        加入请求已发送！
+                    </div>
+                </div>
+                <div class="card-footer" style="padding: 0;">
+                    <button class="btn btn-info " type="submit" style="width: 100%;border-radius:0">
+                        查看
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 创建成功模态框 -->
+    <div id="create-success" class="bodymask">
+        <div class="formsbox">
+            <div class="card myjoin" style="width: 466px;border-radius: 1px 1px 1px black">
+                <div class="card-header flex-justfiy">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button id="myjoin-close" class="btn btn-color " style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: .925rem;">
+                            <use xlink:href="#icon-guanbi1"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="linecenter" style="margin:0 auto">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;opacity:.5">
+                            <use class="avatar" xlink:href="#icon-xuanzhong"></use>
+                        </svg>
+                        加入请求已发送！
+                    </div>
+                </div>
+                <div class="card-footer" style="padding:0;">
+                    <button class="btn btn-info " type="submit" style="width: 100%;border-radius:0;border:0;">
+                        查看
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 创建-->
+    <div class="modal fade" id="modal-project">
+        <div class="modal-dialog" style="max-width:900px;">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <div class="close click-icon" data-dismiss="modal">&times;</div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-project-item">
+                        <span class="my-font" style="font-size:.9rem;width: 8rem; ">取个好名字:</span>
+                        <input type="text" name="" class="inputbox" style="margin:0;border: 1px solid rgba(0,0,0,.2)"
+                            placeholder="">
+                    </div>
+                    <div class="modal-project-item">
+                        <span class="my-font" style="font-size:.9rem;width: 8rem; ">详情描述:</span>
+                        <textarea class="form-control" rows="8" id="comment"></textarea>
+                    </div>
+                    <div class="modal-project-item">
+                        <span class="my-font" style="font-size:.9rem;width: 8rem;">团队招募:</span>
+                        <textarea class="form-control" rows="8" id="comment"></textarea>
+                    </div>
+                    <div class="modal-project-item">
+                        <span class="my-font" style="font-size:.9rem;width: 8rem; ">标签选择:</span>
+                        <div style="display:flex">
+                            <input type="checkbox" class="label-check" id="Input1" hidden>
+                            <label class="label" style="background:palevioletred" for="Input1">#网站</label>
+                            <input type="checkbox" class="label-check" id="Input2" hidden>
+                            <label class="label" style="background:#D9534F" for="Input2">#小说</label>
+                            <input type="checkbox" class="label-check" id="Input3" hidden>
+                            <label class="label" style="background:#5CB85C" for="Input3">#音乐</label>
+                            <input type="checkbox" class="label-check" id="Input4" hidden>
+                            <label class="label" style="background:#428BCA" for="Input4">#机器人</label>
+                            <input type="checkbox" class="label-check" id="Input5" hidden>
+                            <label class="label" style="background:#F0AD4E" for="Input5">#论文</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="create-btn" type="button" class="btn btn-info" style="width:100%;border-radius:0;">创建</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 消息模态框 -->
+    <div class="modal fade" id="info">
+        <div class="modal-dialog">
+            <div class="modal-content" style="min-height:329px;">
+                <div class="modal-header">
+                    <div>
+                        <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                        <b>组队队</b>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body" style="padding:0;">
+                    <ul>
+                        <li style="display:flex;margin:10px 10px;">
+                            <div class="unread-point" style="align-self:center;"></div>
+                            <div style="display:flex;align-items:center;width: 95%;">
+                                <a href="../personal/personal.html">
+                                    <svg class="icon" id="myicon" aria-hidden="true" style="font-size: 3rem;">
+                                        <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                    </svg>
+                                </a>
+                                <div style="width:85%;cursor:pointer;">
+                                    <div class="flex-justfiy">
+                                        <span style="width:50%;color: #5BC0DE;font-size: .9rem;" class="ellipsis">小队队</span>
+                                        <div style="text-align:right"><time style="opacity:.8;font-size:.9rem;">2018/11/22</time></div>
+                                    </div>
+                                    <p style="margin:0;font-size: .8rem;opacity: .8;" class="ellipsis"><b>很高兴您能参与我们的项目，一起加油吧,哈哈哈哈哈哈哈哈哈哈哈</b></p>
+                                </div>
+                            </div>
+                        </li>
+                        <div class="cut-line"></div>
+                        <li style="display:flex;margin:10px 10px;">
+                            <div class="unread-point" style="align-self:center;background: transparent"></div>
+                            <div style="display:flex;align-items:center;width: 95%;">
+                                <a href="../personal/personal.html">
+                                    <svg class="icon" id="myicon" aria-hidden="true" style="font-size: 3rem;">
+                                        <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                    </svg>
+                                </a>
+                                <div style="width:85%;cursor:pointer;">
+                                    <div class="flex-justfiy">
+                                        <span style="width:50%;color: #5BC0DE;font-size: .9rem;" class="ellipsis">小队队</span>
+                                        <div style="text-align:right"><time style="opacity:.8;font-size:.9rem;">2018/11/22</time></div>
+                                    </div>
+                                    <p style="margin:0;font-size: .8rem;opacity: .8;" class="ellipsis"><b>您和队花花配对成功</b></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer" style="padding: 0;">
+                    <button class="btn btn-info " type="submit" style="width: 100%;border-radius:0">
+                        更多历史消息
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark top-navigation" style="padding:0 1rem;">
+        <div id="container" class="container header-box">
+            <div class="header">
+                <!-- Brand -->
+                <a class="navbar-brand " href="../html/index.html">
+                    <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                    组队队
+                </a>
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+                    style="border:0;padding:0;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button id="btn-login" type="button" class="btn btn-color login" data-toggle="modal"
+                            data-target="#loginforms">登录</button>
+                        <div id="mybox" style="height:3rem;width: 55.609px">
+                            <a href="../personal/personal.html">
+                                <svg class="icon" aria-hidden="true" style="font-size: 3rem;">
+                                    <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                </svg>
+                            </a>
+                            <!-- 自定义个人中心模态框 -->
+                            <div id="myform" class="myformsbox">
+                                <div class="container">
+                                    <div id="quit">
+                                        <small><b class="myform-item" style="cursor:pointer;">退出</b></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <div class="head-background">
+        <!-- <img class="head-background-img" style="opacity: 0.6;" src="../photo/head-background7.gif" alt=""> -->
+        <!-- <img  style="background-size:cover" src="../photo/bg1.png" alt=""> -->
+    </div>
+    <!-- 内容 -->
+    <div class="container">
+        <div class="nav-tabs-box" style="display:flex;color: wheat">
+            <svg class="icon" aria-hidden="true" style="font-size: 8rem;opacity:.8;">
+                <use class="avatar" xlink:href="#icon-Chicken"></use>
+            </svg>
+            <div style="margin-left:32px;">
+                <h4 style="margin:16px 0 32px;"><b style="color:white;opacity: .9;">xiaoduidui</b></h4>
+                <ul class="nav-ul">
+                    <li>
+                        <a id="my-tabs" class="nav-li" style="opacity:1;" href="#">我的</a>
+                    </li>
+                    <li>
+                        <a id="peiduidui" class="nav-li" href="#">配对对</a>
+                    </li>
+                    <li>
+                        <a id="data" class="nav-li" href="#">资料</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-box">
+            <!-- 创建按钮 -->
+            <div class="btn-addbox">
+                <button class="btn btn-add">
+                    <svg class="icon" aria-hidden="true" style="font-size: 2rem;">
+                        <use class="avatar" xlink:href="#icon-Addadocument"></use>
+                    </svg>
+                </button>
+                <div class="add-menu">
+                    <ul style="margin: 10px 0;">
+                        <li class="flexcenter click-icon a-nav" style="margin:5px;" data-toggle="modal" data-target="#modal-project"><small><b>创项目</b></small></li>
+                        <li class="flexcenter click-icon a-nav" style="margin:5px;" data-toggle="modal" data-target="#modal-project"><small><b>创任务</b></small></li>
+                        <li class="flexcenter click-icon a-nav" style="margin:5px;" data-toggle="modal" data-target="#modal-project"><small><b>创活动</b></small></li>
+                        <li class="flexcenter click-icon a-nav" style="margin:5px;" data-toggle="modal" data-target="#modal-project"><small><b>草稿箱</b></small></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 消息按钮 -->
+            <div class="btn-informationbox">
+                <button class="btn btn-information" data-toggle="modal" data-target="#info">
+                    <svg class="icon" aria-hidden="true" style="font-size: 2rem;">
+                        <use class="avatar" xlink:href="#icon-xiaoxi"></use>
+                    </svg>
+                </button>
+                <div class="info-num">1</div>
+            </div>
+            <!-- main -->
+            <div class="main-content flex-justfiy">
+                <!-- 左边导航 -->
+                <div class="main-content-left">
+                    <div id="我的">
+                        <div style="display:flex;">
+                            <div id="ul-mark" style="height:1rem;width: 4px;background:tomato;margin-top:15px;"></div>
+                            <div>
+                                <div id="btn1" class="a-nav left-nav-ul" style=" font-size: 1.1rem;opacity: 1">
+                                    <b>项目</b>
+                                </div>
+                                <div id="btn2" class="a-nav left-nav-ul">
+                                    <b>任务</b>
+                                </div>
+                                <div id="btn3" class="a-nav left-nav-ul">
+                                    <b>活动</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="left-nav-li">
+                            <a class="left-nav " href="#">
+                                <li><small><b>我创建的</b></small></li>
+                            </a>
+                            <a class="left-nav " href="#div-partake">
+                                <li><small><b>我参与的</b></small></li>
+                            </a>
+                            <a class="left-nav " href="#div-collection">
+                                <li><small><b>我的收藏</b></small></li>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="配对对" style="display:none">
+                        <div style="display:flex">
+                            <div id="ul-mark" style="height:1rem;width: 4px;background:tomato;margin-top:15px;"></div>
+                            <div id="btn1" class="a-nav left-nav-ul" style=" font-size: 1.1rem;opacity: 1">
+                                <b>心上人</b>
+                            </div>
+                        </div>
+                        <ul class="left-nav-li">
+                            <a class="left-nav " href="#">
+                                <li><small><b>Ta</b></small></li>
+                            </a>
+                            <a class="left-nav " href="#div-letter">
+                                <li><small><b>给Ta的漂流瓶</b></small></li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div id="资料" style="display:none">
+                        <div style="display:flex">
+                            <div id="ul-mark" style="height:1rem;width: 4px;background:tomato;margin-top:15px;"></div>
+                            <div id="btn1" class="a-nav left-nav-ul" style=" font-size: 1.1rem;opacity: 1">
+                                <b>信息中心</b>
+                            </div>
+                        </div>
+                        <ul class="left-nav-li">
+                            <a class="left-nav " href="#">
+                                <li><small><b>我的信息</b></small></li>
+                            </a>
+                            <a class="left-nav " href="#div-data">
+                                <li><small><b>我的数据</b></small></li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 右边内容 -->
+                <div class="main-content-right ">
+                    <!-- 我的  右边内容 -->
+                    <div class="right-box" id="my-content">
+                        <!-- 修改 -->
+                        <svg id="my-navigate-change" class="icon navigate-icon" aria-hidden="true">
+                            <use class="avatar" xlink:href="#icon-pingjia"></use>
+                        </svg>
+                        <!-- 取消修改 -->
+                        <svg id="my-navigate-cancel" class="icon navigate-icon" aria-hidden="true" style="display:none;bottom:45px; font-size: 2.2rem;">
+                            <use class="avatar" xlink:href="#icon-delete"></use>
+                        </svg>
+
+                        <div id="created" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">created：</b></h5>
+                            <div style="display:flex;flex-wrap: wrap;">
+                                <div class="col-lg-4 my-card">
+                                    <div class="card">
+                                        <!-- 头部 -->
+                                        <div class="card-header" style="padding:3px;z-index:2">
+                                            <!-- 订阅 -->
+                                            <div class="flex-justfiy">
+                                                <button class="btn btn-light " type="submit" style="margin:0;padding:0;">
+                                                    <svg class="icon" aria-hidden="true" style="font-size: 1rem;">
+                                                        <use xlink:href="#icon-dingyue"></use>
+                                                    </svg>
+                                                </button>
+                                                <!-- 分享 -->
+                                                <button class="btn btn-light" type="submit" style="margin:0;padding:0;">
+                                                    <svg class="icon" aria-hidden="true" style="font-size: .8rem;">
+                                                        <use xlink:href="#icon-fenxiang"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body" style="padding:0;position:relative;">
+
+                                            <!-- 了解模态框 -->
+                                            <div class="myModal-box-info">
+                                                <div class="my-modal">
+                                                    <button type="button" class="btn btn-outline-info " data-dismiss="modal"
+                                                        data-toggle="modal" data-target="#join">加入团队</button>
+                                                    <button type="button" class="btn btn-outline-info " data-dismiss="modal"
+                                                        data-toggle="modal" data-target="#detail">了解详情</button>
+                                                </div>
+                                            </div>
+                                            <!-- 修改模态框 -->
+                                            <div class="myModal-box-change">
+                                                <div class="my-modal flex-column">
+                                                    <svg class="icon" aria-hidden="true" style="font-size: 3rem;">
+                                                        <use xlink:href="#icon-shanchu-copy"></use>
+                                                    </svg>
+                                                    <svg class="icon" aria-hidden="true" style="font-size: 3rem;">
+                                                        <use xlink:href="#icon-bianji-copy"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <!-- 图片 -->
+                                            <img class="card-img" src="../photo/card2.jpg" alt="">
+                                        </div>
+                                        <!-- 尾部 -->
+                                        <div class="card-footer " style="padding:2px 16px;">
+                                            <div class="aflexcenter">
+                                                <a href="../personal/personal.html" class="aflexcenter" style="width: fit-content">
+                                                    <div style="margin-right:5px;">
+                                                        <svg class="icon" aria-hidden="true" style="font-size: 1.8rem;">
+                                                            <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                                                        </svg>
+                                                    </div>
+                                                    <b>
+                                                        <h6 class="PromulgatorName" style="color:#2c3338;margin: 0;font-size: .9rem">小队队</h6>
+                                                    </b>
+                                                </a>
+                                            </div>
+                                            <b class="card-text">基于bootstrap的网站及微信小程序开发</b>
+                                            <div style="text-align:right"><time style="opacity:.8 ;font-size:.8rem">2018/11/22</time></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div-partake" style="height:4rem"></div>
+
+                        <div id="partake" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">partake：</b></h5>
+                            <div style="display:flex;flex-wrap: wrap;">
+
+                            </div>
+                        </div>
+                        <div id="div-collection" style="height:4rem;"></div>
+
+                        <div id="collection" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">collection：</b></h5>
+                            <div style="display:flex;flex-wrap: wrap;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 配对对  左边内容 -->
+                    <div class="right-box" id="peiduidui-content" style="display:none;">
+                        <div id="Ta" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">Ta</b></h5>
+                            <div style="display:flex;flex-wrap: wrap;">
+
+                            </div>
+                        </div>
+                        <div id="div-letter" style="height:4rem"></div>
+
+                        <div id="letter" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">for H</b></h5>
+                            <div style="display:flex;flex-wrap: wrap;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 资料 左边内容 -->
+                    <div class="right-box" id="data-content" style="display:none;">
+                        <div id="my-info" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">My Information</b></h5>
+                            <div style="margin-left:64px;width:60%">
+                                <form action="/action_page.php" class="flex-column">
+                                    <input type="file" class="custom-file-input" id="customFile" hidden>
+                                    <label class="my-mask-box" for="customFile" style="position:relative;cursor:pointer">
+                                        <div class="my-mask">
+                                            <svg class="icon" aria-hidden="true" style="font-size:3rem;margin:3rem;">
+                                                <use class="avatar" xlink:href="#icon-shangchuan-copy"></use>
+                                            </svg>
+                                        </div>
+                                        <svg class="icon" aria-hidden="true" style="font-size:9rem">
+                                            <use class="avatar" xlink:href="#icon-icons-brown-short-h"></use>
+                                        </svg>
+                                    </label>
+                                    <div class="modal-project-item" style="align-items:center;margin:1rem">
+                                        <label class="my-font" style="font-size:.9rem;width:4rem">昵称:</label>
+                                        <input type="text" name="" class="inputbox" id="nickname-change" style="margin:0;border: 1px solid rgba(0,0,0,.2)"
+                                            placeholder="小队队">
+                                    </div>
+                                    <div class="modal-project-item" style="align-items:center;margin:1rem;">
+                                        <label class="my-font" style="font-size:.9rem;width:4rem">密码:</label>
+                                        <input type="password" name="" class="inputbox" id="password-change" style="margin:0;border: 1px solid rgba(0,0,0,.2)"
+                                            placeholder="修改密码">
+                                    </div>
+                                    <div class="modal-project-item" style="align-items:center;margin:1rem;">
+                                        <label class="email" style="font-size:.9rem;width:4rem">邮箱:</label>
+                                        <input type="password" name="" class="inputbox" id="email-change" style="margin:0;border: 1px solid rgba(0,0,0,.2)"
+                                            placeholder="1694759659@qq.com">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="div-data" style="height:4rem"></div>
+
+                        <div id="my-data" class="project-item">
+                            <h5 style="margin:16px 0 0 16px"><b style="opacity:.5">My Data</b></h5>
+                            <div style="display:flex;flex-wrap: wrap;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="buttom-box">
+        <div class="container flex-justfiy">
+            <div class="bottom-left">
+                <div class="aflexcenter" style="font-size:1.5rem;margin:30px 0;padding:0;">
+                    <img src="../photo/logo.png" alt="Logo" style="width:45px;">
+                    <div>组队队</div>
+                </div>
+                <div class="bottom-item">
+                    组队队倾力打造的项目合作，活动交流平台<br />
+                    用户可以在组队队平台上发布任务和活动，为已发布的任务创立项目，可以招募其他用户一起完成项目，
+                    也可以参与自己感兴趣的项目和活动，借助团队的力量充分发挥自己的优势让事情变得简单可行，让共同的想法成为现实
+                </div>
+                <div class="bottom-item">
+                    ©组队队, powered by 组队队 THX.法律声明<br />
+                    转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源，商业媒体及纸媒请先联系：1694759659@qq.com
+                </div>
+            </div>
+            <div class="bottom-right">
+                <div style="font-size:1.2rem;margin:30px 0;padding:0;opacity: .5;">联系我们：</div>
+                <div class="bottom-item">
+                    <img style="height: 100px; opacity: 1;" src="../photo/weixin.png" alt="微信二维码">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
