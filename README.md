@@ -1,2 +1,1 @@
-组队队
-组队队DEMO
+基于boostrap html css js jquery的静态网页
