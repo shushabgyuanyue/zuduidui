@@ -295,7 +295,6 @@
 }
 
 .right-box {
-    width: 100%;
     height: 100%;
     margin: 0 0 0 2rem;
 }
@@ -354,7 +353,6 @@
 .myModal-box-info,
 .myModal-box-change {
     display: flex;
-    align-items: center;
     justify-content: center;
     position: absolute;
     width: 100%;

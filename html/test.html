@@ -16,10 +16,13 @@
     <!-- jQuery3.3.1 -->
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+
     <!-- 图标 js -->
-    <script src="//at.alicdn.com/t/font_893856_g0v8avrcjlu.js"></script>
+    <script src="https://at.alicdn.com/t/font_893856_tvgyraa7i4.js"></script>
     <!-- 自己的test.js -->
-    <script defer type="text/javascript" src="../dist/test.bundle.js"></script>
+    <!-- <script defer type="text/javascript" src="../dist/test.bundle.js"></script> -->
+    <script defer type="text/javascript" src="../js/test.js"></script>
     <title>测试</title>
     <template class="card-template">
         <div class="col-lg-4 my-card">
@@ -51,7 +54,7 @@
                         </div>
                     </div>
                     <!-- 图片 -->
-                    <img class="card-img" src="photo/card2.jpg" alt="">
+                    <img class="card-img" src="../photo/card1.jpg" alt="">
                 </div>
                 <!-- 尾部 -->
                 <div class="card-footer">
@@ -73,10 +76,52 @@
 </head>
 
 <body>
- <div>
-     <div  class="shake shake-hard"style="display: flex;justify-content: center;background:blue;width: 10%;height: 300px">
+    <div class="col-lg-4 my-card">
+        <div class="card">
+            <!-- 头部 -->
+            <div class="card-header" style="padding:5px;z-index:2">
+                <!-- 订阅 -->
+                <div class="flex-justfiy">
+                    <button class="btn btn-light " type="submit" style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.4rem;">
+                            <use xlink:href="#icon-dingyue"></use>
+                        </svg>
+                    </button>
+                    <!-- 分享 -->
+                    <button class="btn btn-light" type="submit" style="margin:0;padding:0;">
+                        <svg class="icon" aria-hidden="true" style="font-size: 1.2rem;">
+                            <use xlink:href="#icon-fenxiang"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body" style="padding:0;position: relative;">
+
+                <!-- 模态框 -->
+                <div class="myModal-box">
+                    <div class="my-modal">
+                        <button type="button" class="btn btn-outline-info " data-dismiss="modal">加入团队</button>
+                        <button type="button" class="btn btn-outline-info " data-dismiss="modal">了解详情</button>
+                    </div>
+                </div>
+                <!-- 图片 -->
+                <img class="card-img" src="../photo/card2.jpg" alt="">
+            </div>
+            <!-- 尾部 -->
+            <div class="card-footer">
+                <a href="#" style="display:flex;align-items: center;margin:0 0 10px 0;text-decoration : none;">
+                    <div style="margin-right:5px;">
+                        <svg class="icon" aria-hidden="true" style="font-size: 2.5rem;">
+                            <use class="avatar" xlink:href="#icon-icons-blond-curly-h"></use>
+                        </svg>
+                    </div>
+                    <h6 class="PromulgatorName" style="color:#2c3338; margin:0;padding:1">{{username}}</h6>
+                </a>
+                <b class="card-text">{{describe}}</b>
+                <div style="text-align:right"><time>{{date}}</time></div>
+            </div>
+        </div>
     </div>
- </div>
 </body>
 
 </html>
